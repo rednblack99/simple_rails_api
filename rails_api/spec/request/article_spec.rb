@@ -5,6 +5,10 @@ RSpec.describe 'articles API', type: :request do
   let!(:articles) { create_list(:article, 10) }
   let(:article_id) { articles.first.id }
 
+  def json
+    JSON.parse(response.body)
+  end
+
   # Test suite for GET /articles
   describe 'GET /articles' do
     # make HTTP get request before each example
